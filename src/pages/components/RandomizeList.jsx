@@ -22,7 +22,7 @@ function RandomizeList() {
 
   const orderList = () => {
     const lines = inputValue.trim().split('\n');
-    const orderedLines = lines.sort();
+    const orderedLines = lines;
     setRandomizedList(orderedLines);
   };
 
@@ -52,55 +52,98 @@ function RandomizeList() {
 
 
   return (
-    <div className="container" style={{ padding: '20px' }}>
-      <div className='row'>
+    <div className="container">
+      <div className="row">
         <div className="col-md-12">
           <h1>EXE-RANDOM</h1>
           <h2>Randomizador de reuniones</h2>
         </div>
       </div>
-      <div className="row" style={{
-        width: "100%",
-      }}>
+      <div
+        className="row"
+        style={{
+          width: "100%",
+        }}
+      >
         <div className="col-md-6">
-
           <div className="form-group">
             <label>Tiempo máximo (minutos)</label>
-            <input id="inputTiempo" type="text" className="form-control" value={tiempoMaximo} onChange={handleTiempoMaximoChange} />
+            <input
+              id="inputTiempo"
+              type="text"
+              className="form-control"
+              value={tiempoMaximo}
+              onChange={handleTiempoMaximoChange}
+            />
           </div>
 
           <div className="form-group">
             <label>Participantes</label>
-            <textarea id="inputParticipantes" className="form-control" style={{ marginTop: "10px" }} rows="5" value={inputValue} onChange={handleInputChange} />
+            <textarea
+              id="inputParticipantes"
+              className="form-control"
+              style={{ marginTop: "10px" }}
+              rows="5"
+              value={inputValue}
+              onChange={handleInputChange}
+            />
           </div>
 
-          <div style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "flex-start",
-            alignItems: "center",
-            alignContent: "flex-start",
-          }}>
-
-            <button className="btn btn-primary btn-sm" style={{ marginTop: "10px" }} onClick={randomizeList}>Randomizar</button>
-            <button className="btn btn-primary btn-sm" style={{ marginTop: "10px", marginLeft: "5px" }} onClick={orderList}>Ordenar</button>
-            <button className="btn btn-primary btn-sm" style={{ marginTop: "10px", marginLeft: "5px" }} onClick={randomizeExenianos}>Randomizar Exenianos!</button>
-            <button className="btn btn-primary btn-sm" style={{ marginTop: "10px", marginLeft: "5px" }} onClick={handleLimpiar}>Limpiar</button>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "flex-start",
+              alignItems: "center",
+              alignContent: "flex-start",
+            }}
+          >
+            <button
+              className="btn btn-dark btn-sm"
+              style={{ marginTop: "10px" }}
+              onClick={randomizeList}
+              title='Randomizar lista'
+            >
+              Random
+            </button>
+            <button
+              className="btn btn-dark btn-sm"
+              style={{ marginTop: "10px", marginLeft: "5px" }}
+              onClick={orderList}
+              title='Ordenar lista'
+            >
+              Ordenar
+            </button>
+            <button
+              className="btn btn-dark btn-sm"
+              style={{ marginTop: "10px", marginLeft: "5px" }}
+              onClick={randomizeExenianos}
+              title='Randomizar lista de exenianos'
+            >
+              Random Exe
+            </button>
+            <button
+              className="btn btn-dark btn-sm"
+              style={{ marginTop: "10px", marginLeft: "5px" }}
+              onClick={handleLimpiar}
+              title='Limpiar lista'
+            >
+              Limpiar
+            </button>
           </div>
-
-
         </div>
         <div className="col-md-6">
-          <div style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "flex-start",
-            alignItems: "flex-start",
-            alignContent: "flex-start",
-
-          }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "flex-start",
+              alignItems: "flex-start",
+              alignContent: "flex-start",
+              marginTop: "10px",
+            }}
+          >
             {randomizedList.map((line, index) => (
-
               <Opcion
                 key={index}
                 maxTime={tiempoMaximo}

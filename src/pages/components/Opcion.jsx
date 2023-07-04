@@ -85,85 +85,142 @@ const Opcion = ({ maxTime, index, line }) => {
 
 
   return (
-
-    <div key={index} style={{
-      display: "flex",
-      flexDirection: "row",
-      justifyContent: "flex-start",
-      alignItems: "center",
-      alignContent: "flex-start",
-      margin: "5px"
-    }}>
-      <div className="card" style={{ width: "25rem" }}>
+    <div
+      key={index}
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "flex-start",
+        alignItems: "center",
+        alignContent: "flex-start",
+        width: "100%",
+        marginTop: "5px",
+      }}
+    >
+      <div className="card" style={{ width: "100%" }}>
         <div className="card-body">
-          <h5 className="card-title" style={{ color: "black" }}>{line}</h5>
+          <h5 style={{ color: "grey" }}>{line}</h5>
 
-          <div style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center",
-            alignContent: "flex-start"
-
-          }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+              alignContent: "flex-start",
+            }}
+          >
             <h3 className="card-subtitle mb-2 text-muted">{formatTime()}</h3>
-            <p className="card-subtitle mb-2 text-muted" style={{
-              marginLeft: "10px"
-            }}>
-              {running && <span className="badge badge-success">En tiempo</span>}
-              {!running && time > 0 && <span className="badge badge-warning">Pausado</span>}
-              {time <= 0 && <span className="badge badge-danger">Finalizado</span>}
-
+            <p
+              className="card-subtitle mb-2 text-muted"
+              style={{
+                marginLeft: "10px",
+              }}
+            >
+              {running && (
+                <span className="badge badge-success">En tiempo</span>
+              )}
+              {!running && time > 0 && (
+                <span className="badge badge-warning">Pausado</span>
+              )}
+              {time <= 0 && (
+                <span className="badge badge-danger">Finalizado</span>
+              )}
             </p>
-
           </div>
 
-
-
-          <div className="btn-group" role="group" aria-label="Basic example" style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center",
-            alignContent: "flex-start",
-            marginTop: "10px"
-          }}>
-            <button type='button' className="btn btn-dark btn-sm" onClick={handleStart} disabled={running}>
+          <div
+            className="btn-group"
+            role="group"
+            aria-label="Basic example"
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+              alignContent: "flex-start",
+              marginTop: "10px",
+            }}
+          >
+            <button
+              type="button"
+              className="btn btn-dark btn-sm"
+              onClick={handleStart}
+              disabled={running}
+              title="Iniciar"
+            >
               <i className="bi bi-play-fill"></i>
             </button>
-            <button type='button' className="btn btn-dark btn-sm" onClick={handlePause} disabled={!running}>
+            <button
+              type="button"
+              className="btn btn-dark btn-sm"
+              onClick={handlePause}
+              disabled={!running}
+              title="Pausar"
+            >
               <i className="bi bi-pause-fill"></i>
             </button>
-            <button type='button' className="btn btn-dark btn-sm" onClick={handleStop} disabled={running}>
+            <button
+              type="button"
+              className="btn btn-dark btn-sm"
+              onClick={handleStop}
+              disabled={running}
+              title="Detener"
+            >
               <i className="bi bi-stop-fill"></i>
             </button>
-            <button type='button' className="btn btn-dark btn-sm" onClick={handleReset} disabled={running}>
+            <button
+              type="button"
+              className="btn btn-dark btn-sm"
+              onClick={handleReset}
+              disabled={running}
+              title="Reiniciar"
+            >
               <i className="bi bi-arrow-counterclockwise"></i>
             </button>
-            <button type='button' className="btn btn-dark btn-sm" onClick={handleAddTime} disabled={running}>
+            <button
+              type="button"
+              className="btn btn-dark btn-sm"
+              onClick={handleAddTime}
+              title="Agregar 1 minuto"
+            >
               <i className="bi bi-plus"></i> 1
             </button>
-            <button type='button' className="btn btn-dark btn-sm" onClick={() => setShowObservaciones(!showObservaciones)}>
+            <button
+              type="button"
+              className="btn btn-dark btn-sm"
+              title="Agregar observaciones"
+              onClick={() => setShowObservaciones(!showObservaciones)}
+            >
               <i className="bi bi-chat-left-text"></i>
             </button>
           </div>
-
         </div>
 
-
-        {showObservaciones && <div style={{ width: "100%" }}>
-          <div className="card-body">
-            <h5 className="card-title">Observaciones</h5>
-            <textarea id="inputObservacion" className="form-control" style={{ marginTop: "10px" }} rows="10" value={observaciones} onChange={
-              (e) => {
-                setObservaciones(e.target.value);
-              }
-            } />
-            <button className="btn btn-primary" style={{ marginTop: "10px" }} onClick={handleExportObservaciones}>Exportar a TXT</button>
-
-
+        {showObservaciones && (
+          <div style={{ width: "100%" }}>
+            <div className="card-body">
+              <h5>Observaciones</h5>
+              <textarea
+                id="inputObservacion"
+                className="form-control"
+                style={{ marginTop: "10px" }}
+                rows="10"
+                value={observaciones}
+                onChange={(e) => {
+                  setObservaciones(e.target.value);
+                }}
+              />
+              <button
+                className="btn btn-dark btn-sm"
+                style={{ marginTop: "10px" }}
+                onClick={handleExportObservaciones}
+              >
+                <i class="bi bi-download"></i> Exportar a txt
+              </button>
+            </div>
           </div>
-        </div>}
+        )}
       </div>
     </div>
   );
