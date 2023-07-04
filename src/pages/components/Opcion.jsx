@@ -99,7 +99,7 @@ const Opcion = ({ maxTime, index, line }) => {
     >
       <div className="card" style={{ width: "100%" }}>
         <div className="card-body">
-          <h5 style={{ color: "grey" }}>{line}</h5>
+          <h5 style={{ color: "#444444" }}>{line}</h5>
 
           <div
             style={{
@@ -200,7 +200,7 @@ const Opcion = ({ maxTime, index, line }) => {
         {showObservaciones && (
           <div style={{ width: "100%" }}>
             <div className="card-body">
-              <h5>Observaciones</h5>
+              <h5 style={{ color: "#444444" }}>Observaciones</h5>
               <textarea
                 id="inputObservacion"
                 className="form-control"
