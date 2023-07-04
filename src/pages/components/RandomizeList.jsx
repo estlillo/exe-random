@@ -29,10 +29,9 @@ function RandomizeList() {
   };
 
   useEffect(() => {
-    // Aquí puedes agregar cualquier efecto deseado al cambiar el estado de randomizedList
-    // Por ejemplo, puedes reiniciar el contador cuando se actualiza la lista randomizada
-    // handleCountdown();
+   
   }, [randomizedList]);
+
 
   return (
     <div className="container" style={{ padding: '20px' }}>
@@ -42,7 +41,9 @@ function RandomizeList() {
           <h2>Randomizador de reuniones</h2>
         </div>
       </div>
-      <div className="row">
+      <div className="row" style={{
+        width: "100%",
+      }}>
         <div className="col-md-6">
 
         <div className="form-group">
@@ -58,16 +59,24 @@ function RandomizeList() {
           <button className="btn btn-primary" style={{marginTop:"10px"}} onClick={randomizeList}>Randomizar!</button>
         </div>
         <div className="col-md-6">
-          <ul>
+          <div style={{
+           display:"flex",
+            flexDirection: "column",
+            justifyContent: "flex-start",
+            alignItems:"flex-start",
+            alignContent:"flex-start",
+          
+          }}>
             {randomizedList.map((line, index) => (
-             <Opcion 
+          
+             <Opcion
               key={index}
-              tiempoMaximo={tiempoMaximo}
+              maxTime={tiempoMaximo}
               index={index}
               line={line}
              />
             ))}
-          </ul>
+          </div>
         </div>
       </div>
     </div>
