@@ -96,7 +96,7 @@ const Opcion = ({ maxTime, index, line }) => {
     }}>
       <div className="card" style={{ width: "25rem" }}>
         <div className="card-body">
-          <h5 className="card-title">{line}</h5>
+          <h5 className="card-title" style={{ color: "black" }}>{line}</h5>
 
           <div style={{
             display: "flex",
