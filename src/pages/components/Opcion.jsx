@@ -143,7 +143,7 @@ const Opcion = ({ maxTime, index, line }) => {
             <button type='button' className="btn btn-dark btn-sm" onClick={handleAddTime} disabled={running}>
               <i className="bi bi-plus"></i> 1
             </button>
-            <button type='button' className="btn btn-dark btn-sm" onClick={() => setShowObservaciones(!showObservaciones)} disabled={running}>
+            <button type='button' className="btn btn-dark btn-sm" onClick={() => setShowObservaciones(!showObservaciones)}>
               <i className="bi bi-chat-left-text"></i>
             </button>
           </div>
