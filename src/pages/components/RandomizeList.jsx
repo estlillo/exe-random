@@ -27,7 +27,8 @@ function RandomizeList() {
   };
 
   const randomizeExenianos = () => {
-    const lines = "Enrique Ibañez\nLuciano Hernandez\nMarcelo Azar\nRobert Jaure \nEsteban Lillo\nRicardo Fuentes\nJuan Pablo Norambuena\nRaul Neira\nFernando Gelcich";
+    const lines =
+      "Enrique Ibañez\nLuciano Hernandez\nMarcelo Azar\nRobert Jaure \nEsteban Lillo\nRicardo Fuentes\nJuan Pablo Norambuena\nRaul Neira\nFernando Gelcich\nAndrés Ruíz";
     const randomizedLines = shuffleArray(lines.split('\n'));
     setRandomizedList(randomizedLines);
   }
